@@ -2,13 +2,16 @@ const http = require('http');
 
 const server = http.createServer((request, response) => {
     response.writeHead(200, { "Content-Type": "text/plain" });
-    response.write(JSON.stringify(projects)); //Making whole object to STRING
+    response.write(JSON.stringify(projects, null, 4)); //Making whole object to STRING
     response.end();
 
 });
 
+//Setting up host port or using local port
 const port = process.env.PORT || 1337;
 server.listen(port);
+
+
 
 //My portffolio object
 const projects = [{
@@ -35,6 +38,8 @@ const projects = [{
     ]
 }];
 
+const apiHtml = document.querySelector(".api-test");
+apiHtml.innerHTML = `<h1>${projects[0].title}</h1>`;
 
 
 
