@@ -38,9 +38,4 @@ const projects = [{
     ]
 }];
 
-const apiHtml = document.querySelector(".api-test");
-apiHtml.innerHTML = `<h1>${projects[0].title}</h1>`;
-
-
-
 console.log("Server running at http://localhost:%d", port);
