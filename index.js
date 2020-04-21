@@ -1,17 +1,29 @@
-const http = require('http');
+// const http = require('http');
 
-const server = http.createServer((request, response) => {
-    response.writeHead(200, { "Content-Type": "text/plain" });
-    response.write(JSON.stringify(projects, null, 4)); //Making whole object to STRING
-    response.end();
+// const server = http.createServer((request, response) => {
+//     response.writeHead(200, { "Content-Type": "text/plain" });
+//     response.write(JSON.stringify(projects, null, 4)); //Making whole object to STRING
+//     response.end();
+
+// });
+
+// //Setting up host port or using local port
+// const port = process.env.PORT || 1337;
+// server.listen(port);
+
+
+// Using Express to GET CALLS
+var express = require("express");
+var app = express();
+
+app.get("/portfolio", (req, res, next) => {
+    res.json(projects);
 
 });
-
-//Setting up host port or using local port
-const port = process.env.PORT || 1337;
-server.listen(port);
-
-
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log("Server running on HOST or port 3000");
+});
 
 //My portffolio object
 const projects = [{
